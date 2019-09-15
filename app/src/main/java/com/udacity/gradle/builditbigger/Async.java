@@ -13,10 +13,6 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-/**
- * Created by kholoud on 9/14/2019.
- */
-
 public class Async extends AsyncTask<Void, Void, String> {
 
     private static MyApi myApi = null;
@@ -28,12 +24,9 @@ public class Async extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... voids) {
-        if (myApi == null) { // Only do this once
+        if (myApi == null) {
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-                    // options for running against local devappserver
-                    // - 10.0.2.2 is localhost's IP address in Android emulator
-                    // - turn off compression when running against local devappserver
                     .setRootUrl("http://10.0.2.2:8080/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
@@ -54,7 +47,7 @@ public class Async extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         Intent intent = new Intent(context, MainActivityAnd.class);
-        intent.putExtra("joke", result);
+        intent.putExtra("jokeApp", result);
         context.startActivity(intent);
     }
 }

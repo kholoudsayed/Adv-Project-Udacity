@@ -33,7 +33,8 @@ dependencies {
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
 }
 appengine {
-    tools.cloudSdkHome = "/Users/emrekose/google-cloud-sdk"
+    tools.cloudSdkHome = "C:\\Program Files\\Google\\google-cloud-sdk"
+
 
     deploy {
 
