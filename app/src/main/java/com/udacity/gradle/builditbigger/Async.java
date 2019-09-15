@@ -40,7 +40,7 @@ public class Async extends AsyncTask<Void, Void, String> {
         try {
             return myApi.sayHi().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            return " ";
         }
     }
 
